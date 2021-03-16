@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Usuario = sequelize.define('tipo_maquina', {
+  const TipoMaquina = sequelize.define('tipo_maquina', {
       id: {
           allowNull: false,
           autoIncrement: true,
@@ -17,8 +17,8 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'tipo_maquina',
       classMethods: {}
   });
-  Usuario.associate = function(models) {
+  TipoMaquina.associate = function(models) {
   // associations can be defined here
   };
-  return Usuario;
+  return TipoMaquina;
 };

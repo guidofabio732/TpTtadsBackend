@@ -9,4 +9,6 @@ module.exports = (app) => {
    app.get('/api/tipo_maquina/list', tipo_maquinaController.list);
    app.get('/api/tipo_pieza/list', tipo_piezaController.list);
    app.get('/api/maquina_pieza/list', maquina_piezaController.list);
+   
+   app.post('/api/tipo_pieza/create/descp/:descp/cant/:cant', tipo_piezaController.create);
 };

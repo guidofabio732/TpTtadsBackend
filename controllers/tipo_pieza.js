@@ -6,4 +6,13 @@ module.exports = {
         .then(tipo_pieza => res.status(200).send(tipo_pieza))
         .catch(error => res.status(400).send(error))
  },
+ create(req, res) {
+    return tipo_pieza
+        .create ({
+             descp: req.params.descp,
+             cant: req.params.cant
+        })
+        .then(tipo_pieza => res.status(200).send(tipo_pieza))
+        .catch(error => res.status(400).send(error))
+ },
 };

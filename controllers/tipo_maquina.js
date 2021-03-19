@@ -10,7 +10,6 @@ module.exports = {
         return tipo_maquina.update({
             descp: req.body.descp
         }, {
-            returnig: true,
             where: {
                 id: req.body.id,
             },

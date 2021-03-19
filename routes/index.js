@@ -20,5 +20,9 @@ module.exports = (app) => {
 
    app.post('/api/tipo_maquina/update', tipo_maquinaController.update);
 
+   app.post('/api/tipo_pieza/update', tipo_piezaController.update);
+
+   app.post('/api/maquina_pieza/update', maquina_piezaController.update);
+
 
 };

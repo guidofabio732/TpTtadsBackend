@@ -8,11 +8,11 @@ module.exports = {
     },
     create(req, res) {
         return tipo_pieza
-            .create ({
-                descp: req.params.descp,
-                cant: req.params.cant
+            .create({
+                descp: req.body.descp,
+                cant: req.body.cant
             })
-            .then(tipo_pieza => res.status(200).send(tipo_pieza))
+            .then(tipo_pieza => res.status(200).json(tipo_pieza))
             .catch(error => res.status(400).send(error))
     },
     update(req, res) {

@@ -2,11 +2,8 @@
 const tipo_maquinaController = require('../controllers/tipo_maquina');
 const tipo_piezaController = require('../controllers/tipo_pieza');
 const maquina_piezaController = require('../controllers/maquina_pieza');
-const maquina_pieza = require('../controllers/maquina_pieza');
+
 module.exports = (app) => {
-
-   //Get
-
    app.get('/api', (req, res) => res.status(200).send({
       message: 'Example project did not give you access to the api web services',
    }));

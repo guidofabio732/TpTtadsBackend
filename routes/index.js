@@ -14,10 +14,12 @@ module.exports = (app) => {
    app.get('/api/tipo_maquina/list', tipo_maquinaController.list);
    app.get('/api/tipo_pieza/list', tipo_piezaController.list);
    app.get('/api/maquina_pieza/list', maquina_piezaController.list);
+
+   //Create
    
-   app.post('/api/tipo_pieza/create/descp/:descp/cant/:cant', tipo_piezaController.create);
-   app.post('/api/tipo_maquina/create/descp/:descp', tipo_maquinaController.create);
-   app.post('/api/maquina_pieza/create/id_pieza/:id_pieza/id_maquina/:id_maquina/cant/:cant', maquina_piezaController.create);
+   app.post('/api/tipo_pieza/create', tipo_piezaController.create);
+   app.post('/api/tipo_maquina/create', tipo_maquinaController.create);
+   app.post('/api/maquina_pieza/create', maquina_piezaController.create);
 
    //Update
    app.post('/api/tipo_maquina/update', tipo_maquinaController.update);

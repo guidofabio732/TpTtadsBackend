@@ -9,9 +9,9 @@ module.exports = {
     create(req, res) {
         return tipo_maquina
             .create ({
-                descp: req.params.descp,
+                descp: req.body.descp,
             })
-            .then(tipo_maquina => res.status(200).send(tipo_maquina))
+            .then(tipo_maquina => res.status(200).json(tipo_maquina))
             .catch(error => res.status(400).send(error))
     },
     update(req, res) {

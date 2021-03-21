@@ -4,13 +4,16 @@ const express = require('express');
 
 const router = express.Router();
 
-//list
+// list
 router.get('/list', tipo_maquinaController.list);
 
-//create
+// create
 router.post('/create', tipo_maquinaController.create);
 
-//update
+// update
 router.post('/update', tipo_maquinaController.update);
+
+// delete
+router.delete('/delete', tipo_maquinaController.delete);
 
 module.exports = router;

@@ -24,5 +24,14 @@ module.exports = {
         })
             .then(updatedTipoMaquina => res.status(200).json(updatedTipoMaquina))
             .catch(error => res.status(400).send(error));
+    },
+    delete(req, res) {
+        return tipo_maquina.destroy({
+            where: {
+                id: req.body.id
+            }
+        })
+            .then(deletedTipoMaquina => res.status(200).json(deletedTipoMaquina))
+            .catch(error => res.status(400).send(error));
     }
 };

@@ -11,4 +11,7 @@ router.post('/create', maquina_piezaController.create);
 //update
 router.post('/update', maquina_piezaController.update);
 
+// delete
+router.delete('/delete', maquina_piezaController.delete);
+
 module.exports = router;

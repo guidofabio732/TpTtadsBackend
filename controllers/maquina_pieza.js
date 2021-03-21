@@ -29,5 +29,14 @@ module.exports = {
         })
             .then(updatedMaquinaPieza => res.status(200).json(updatedMaquinaPieza))
             .catch(error => res.status(400).send(error));
+    },
+    delete(req, res) {
+        return maquina_pieza.destroy({
+            where: {
+                id: req.body.id
+            }
+        })
+            .then(deletedMaquinaPieza => res.status(200).json(deletedMaquinaPieza))
+            .catch(error => res.status(400).send(error));
     }
 };

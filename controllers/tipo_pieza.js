@@ -27,5 +27,14 @@ module.exports = {
         })
             .then(updatedTipoPieza => res.status(200).json(updatedTipoPieza))
             .catch(error => res.status(400).send(error));
+    },
+    delete(req, res) {
+        return tipo_pieza.destroy({
+            where: {
+                id: req.body.id
+            }
+        })
+            .then(deletedTipoPieza => res.status(200).json(deletedTipoPieza))
+            .catch(error => res.status(400).send(error));
     }
 };

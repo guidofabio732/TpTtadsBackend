@@ -14,6 +14,6 @@ router.post('/create', tipo_maquinaController.create);
 router.post('/update', tipo_maquinaController.update);
 
 // delete
-router.delete('/delete', tipo_maquinaController.delete);
+router.delete('/delete/id/:id', tipo_maquinaController.delete);
 
 module.exports = router;

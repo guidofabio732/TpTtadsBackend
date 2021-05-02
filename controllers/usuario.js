@@ -13,7 +13,7 @@ dotenv.config(); //recupero variables de configuracion
 function generateAccessToken(nombreUsuario) {
     // con process.env.TOKEN_SECRET accedo a la variable donde guarde el secret key
     // la funcion sign firma el token en base al usuario y el secret key y dura media hora
-    return jwt.sign({ nombreUsuario: nombreUsuario}, process.env.SECRET_KEY, {expiresIn: '1800s'});
+    return jwt.sign({ nombreUsuario: nombreUsuario }, process.env.SECRET_KEY, { expiresIn: '1800s' });
 }
 
 module.exports = {
@@ -33,7 +33,7 @@ module.exports = {
 
             if (created) { // si no existe y lo creó, devuelvo el id
                 res.status(200);
-                response = serviceResponse('Succeeded', 'Usuario creado con exito', { 'id': usuario.id});
+                response = serviceResponse('Succeeded', 'Usuario creado con exito', { 'id': usuario.id });
 
             } else { //si ya existe lo informa
                 res.status(409);
@@ -66,6 +66,27 @@ module.exports = {
             }
         } catch (err) {
             res.status(400);
+            response = serviceResponse('Failed', err.message, null);
+        }
+
+        res.json(response);
+    },
+
+    async userExists(req, res) {
+        let response;
+        try {
+            const usuario = await Usuario.findOne({
+                where: {
+                    nombre_usuario: req.body.nombre_usuario
+                }
+            });
+            if (usuario === null) {
+                response = serviceResponse('Success', null, false); // el usuario no existe 
+            } else {
+                response = serviceResponse('Success', null, true); // el usuario si existe
+            }
+        } catch (err) {
+            res.status(500);
             response = serviceResponse('Failed', err.message, null);
         }
 

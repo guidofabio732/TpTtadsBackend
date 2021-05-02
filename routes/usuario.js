@@ -8,5 +8,7 @@ router.post('/login', usuarioController.login);
 //create
 router.post('/register', usuarioController.register);
 
+router.post('/userExists', usuarioController.userExists);
+
 
 module.exports = router;

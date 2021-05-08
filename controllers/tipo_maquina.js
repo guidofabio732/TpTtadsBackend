@@ -1,6 +1,17 @@
-const Sequelize = require('sequelize');
+const { Sequelize, Op } = require('sequelize');
 const tipo_maquina = require('../models').tipo_maquina;
 module.exports = {
+    getByDesc(req, res) {
+        return tipo_maquina.findAll({
+            where: {
+                descp: {
+                    [Op.like]: `%${req.params.descp}%`
+                }
+            }
+        })
+            .then(tipos_maquinas => res.status(200).json(tipos_maquinas))
+            .catch(error => res.status(404).send(error));
+    },
     list(_, res) {
         return tipo_maquina.findAll({})
             .then(tipo_maquina => res.status(200).send(tipo_maquina))
@@ -8,7 +19,7 @@ module.exports = {
     },
     create(req, res) {
         return tipo_maquina
-            .create ({
+            .create({
                 descp: req.body.descp,
             })
             .then(tipo_maquina => res.status(200).json(tipo_maquina))

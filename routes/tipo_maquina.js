@@ -1,12 +1,11 @@
 const tipo_maquinaController = require('../controllers/tipo_maquina');
 
 const express = require('express');
-const tipo_maquina = require('../controllers/tipo_maquina');
 
 const router = express.Router();
 
 // get by description/name
-router.get('/list/:descp', tipo_maquina.getByDesc);
+router.get('/list/:descp', tipo_maquinaController.getByDesc);
 
 // list
 router.get('/list', tipo_maquinaController.list);

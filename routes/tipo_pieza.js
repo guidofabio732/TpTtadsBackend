@@ -2,6 +2,9 @@ const tipo_piezaController = require('../controllers/tipo_pieza');
 const express = require('express');
 const router = express.Router();
 
+// get by description/name
+router.get('/list/:descp', tipo_piezaController.getByDesc);
+
 //list
 router.get('/list', tipo_piezaController.list);
 

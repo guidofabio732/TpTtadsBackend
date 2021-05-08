@@ -1,6 +1,17 @@
-const Sequelize = require('sequelize');
+const {Sequelize, Op} = require('sequelize');
 const tipo_pieza = require('../models').tipo_pieza;
 module.exports = {
+    getByDesc(req, res) {
+        return tipo_pieza.findAll({
+            where: {
+                descp: {
+                    [Op.like]: `%${req.params.descp}%`
+                }
+            }
+        })
+            .then(tipos_piezas => res.status(200).json(tipos_piezas))
+            .catch(error => res.status(404).send(error));
+    },
     list(_, res) {
         return tipo_pieza.findAll({})
             .then(tipo_pieza => res.status(200).send(tipo_pieza))

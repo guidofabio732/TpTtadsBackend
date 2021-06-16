@@ -42,7 +42,7 @@ module.exports = {
     delete(req, res) {
         return tipo_pieza.destroy({
             where: {
-                id: req.body.id
+                id: req.params.id
             }
         })
             .then(deletedTipoPieza => res.status(200).json(deletedTipoPieza))
